@@ -3,16 +3,21 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/remar/AndroidStudioProjects/NMedia/app/src/main/res/drawable/ic_baseline_check_circle_outline_24.xml" value="0.15" />
+        <entry key="..\:/Users/remar/AndroidStudioProjects/NMedia/app/src/main/res/drawable/ic_baseline_disabled_by_default_24.xml" value="0.1" />
         <entry key="..\:/Users/remar/AndroidStudioProjects/NMedia/app/src/main/res/drawable/ic_baseline_favorite_24.xml" value="0.239" />
         <entry key="..\:/Users/remar/AndroidStudioProjects/NMedia/app/src/main/res/drawable/ic_baseline_more_vert_24.xml" value="0.1695" />
         <entry key="..\:/Users/remar/AndroidStudioProjects/NMedia/app/src/main/res/drawable/ic_baseline_preview_24.xml" value="0.1695" />
+        <entry key="..\:/Users/remar/AndroidStudioProjects/NMedia/app/src/main/res/drawable/ic_baseline_save_alt_24.xml" value="0.1" />
         <entry key="..\:/Users/remar/AndroidStudioProjects/NMedia/app/src/main/res/drawable/ic_baseline_visibility_24.xml" value="0.2985" />
         <entry key="..\:/Users/remar/AndroidStudioProjects/NMedia/app/src/main/res/drawable/ic_launcher_background.xml" value="0.196" />
         <entry key="..\:/Users/remar/AndroidStudioProjects/NMedia/app/src/main/res/drawable/ic_outline_favorite_border_24.xml" value="0.2985" />
         <entry key="..\:/Users/remar/AndroidStudioProjects/NMedia/app/src/main/res/drawable/ic_outline_share_24.xml" value="0.2985" />
         <entry key="..\:/Users/remar/AndroidStudioProjects/NMedia/app/src/main/res/drawable/netology.xml" value="0.2985" />
-        <entry key="..\:/Users/remar/AndroidStudioProjects/NMedia/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Users/remar/AndroidStudioProjects/NMedia/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/remar/AndroidStudioProjects/NMedia/app/src/main/res/layout/post.xml" value="0.1" />
         <entry key="..\:/Users/remar/AndroidStudioProjects/NMedia/app/src/main/res/layout/post_item.xml" value="0.33" />
+        <entry key="..\:/Users/remar/AndroidStudioProjects/NMedia/app/src/main/res/menu/option_posts.xml" value="0.1" />
         <entry key="..\:/Users/remar/AndroidStudioProjects/NMedia/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.196" />
       </map>
     </option>

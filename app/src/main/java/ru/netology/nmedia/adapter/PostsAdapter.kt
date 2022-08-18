@@ -2,7 +2,9 @@ package ru.netology.nmedia.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+
 import android.widget.PopupMenu
+
 import androidx.annotation.DrawableRes
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
@@ -12,9 +14,11 @@ import ru.netology.nmedia.databinding.PostListItemBinding
 import ru.netology.nmedia.dto.Post
 import ru.netology.nmedia.dto.countFormat
 
+
 internal class PostsAdapter(
         private val interactionListener: PostInteractionListener
 ):ListAdapter<Post, PostsAdapter.ViewHolder>(DifCallBack) {
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -22,21 +26,26 @@ internal class PostsAdapter(
         val binding = PostListItemBinding.inflate(
             inflater, parent, false
         )
+
         return ViewHolder(binding, interactionListener)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(getItem(position))
+
     }
 
     class ViewHolder(
         private val binding: PostListItemBinding,
+
         listener: PostInteractionListener
     ) : RecyclerView.ViewHolder(binding.root) {
+
 
         private lateinit var post: Post
 
         init {
+
             binding.like.setOnClickListener {
                 listener.onLikeClicked(post)
 
@@ -79,13 +88,16 @@ internal class PostsAdapter(
                     like.setImageResource(getLikeIconResId(post.likedByMe))
                     menu.setOnClickListener { popupMenu.show() }
 
+
                 }
             }
+
 
 
         @DrawableRes
         private fun getLikeIconResId(liked: Boolean) =
             if (liked) R.drawable.ic_baseline_favorite_24 else R.drawable.ic_outline_favorite_border_24
+
 
     }
 

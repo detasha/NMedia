@@ -8,7 +8,7 @@
     <string name="description_post_view">View</string>
     <string name="remove">Delete</string>
     <string name="post_text">Post Text</string>
-    <string name ="edit">Edit</string>
+    <string name="edit">Edit</string>
     <string name="netologia">Netologia</string>
     <string name="edit_message">Edit message</string>
 </resources>

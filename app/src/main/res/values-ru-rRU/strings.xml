@@ -7,4 +7,10 @@
     <string name="description_post_like">Нравится</string>
     <string name="description_post_share">Поделиться</string>
     <string name="description_post_view">Просмотры</string>
+    <string name="remove">Удалить</string>
+    <string name="post_text">Текст поста</string>
+    <string name="edit_message">Редактировать</string>
+    <string name="edit">Редактировать</string>
+    <string name="netologia">Нетология</string>
+
 </resources>

@@ -1,6 +1,7 @@
 package ru.netology.nmedia
 
 import android.os.Bundle
+
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -13,6 +14,7 @@ import ru.netology.nmedia.viewmodel.PostViewModel
 class MainActivity : AppCompatActivity() {
     private val viewModel by viewModels<PostViewModel>()
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -20,12 +22,15 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
+
         val adapter = PostsAdapter(viewModel)
+
 
         binding.postRecyclerView.adapter = adapter
         viewModel.data.observe(this) { posts ->
             adapter.submitList(posts)
         }
+
 
 
         binding.saveButton.setOnClickListener {
@@ -64,6 +69,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 }
+
 
 
 

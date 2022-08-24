@@ -48,11 +48,15 @@ internal class PostsAdapter(
 
             binding.like.setOnClickListener {
                 listener.onLikeClicked(post)
-
-                binding.share.setOnClickListener {
-                    listener.onShareClicked(post)
-                }
             }
+
+            binding.share.setOnClickListener {
+                listener.onShareClicked(post)
+            }
+            binding.menu.setOnClickListener {
+                popupMenu.show()
+            }
+
         }
 
         private val popupMenu by lazy {
@@ -64,7 +68,7 @@ internal class PostsAdapter(
                             listener.onRemoveClicked(post)
                             true
                         }
-                        R.id.edit->{
+                        R.id.edit -> {
                             listener.onEditClicked(post)
                             true
                         }
@@ -75,39 +79,31 @@ internal class PostsAdapter(
         }
 
 
-            fun bind(post: Post) {
-                this.post = post
+        fun bind(post: Post) {
+            this.post = post
 
-                with(binding) {
-                    author.text = post.author
-                    published.text = post.published
-                    content.text = post.content
-                    likeCount.text = countFormat(post.likesCount)
-                    shareCount.text = countFormat(post.sharesCount)
-                    viewsCount.text = countFormat(post.viewsCount)
-                    like.setImageResource(getLikeIconResId(post.likedByMe))
-                    menu.setOnClickListener { popupMenu.show() }
+            with(binding) {
+                author.text = post.author
+                published.text = post.published
+                content.text = post.content
+                like.text = countFormat(post.likesCount)
+                share.text = countFormat(post.sharesCount)
+                view.text = countFormat(post.viewsCount)
+                like.isChecked = post.likedByMe
 
-
-                }
             }
-
-
-
-        @DrawableRes
-        private fun getLikeIconResId(liked: Boolean) =
-            if (liked) R.drawable.ic_baseline_favorite_24 else R.drawable.ic_outline_favorite_border_24
-
+        }
 
     }
 
 
-    private object DifCallBack : DiffUtil.ItemCallback<Post>(){
-        override fun areItemsTheSame(oldItem: Post, newItem: Post)=
-            oldItem.id == newItem.id
+        private object DifCallBack : DiffUtil.ItemCallback<Post>() {
+            override fun areItemsTheSame(oldItem: Post, newItem: Post) =
+                oldItem.id == newItem.id
 
-        override fun areContentsTheSame(oldItem: Post, newItem: Post)=
-            oldItem == newItem
+            override fun areContentsTheSame(oldItem: Post, newItem: Post) =
+                oldItem == newItem
         }
     }
+
 

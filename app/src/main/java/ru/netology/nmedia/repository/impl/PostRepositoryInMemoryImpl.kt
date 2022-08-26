@@ -25,7 +25,8 @@ class PostRepositoryInMemoryImpl : PostRepository {
                 likesCount = 0,
                 sharesCount = 0,
                 viewsCount = 10,
-                likedByMe = false
+                likedByMe = false,
+                video = "https://www.youtube.com/watch?v=WhWc3b3KhnY"
             )
         }
         data = MutableLiveData(initialPosts)
@@ -69,7 +70,7 @@ class PostRepositoryInMemoryImpl : PostRepository {
       )+ posts
     }
 
-    private fun update(post: Post){
+   override fun update(post: Post){
         data.value = posts.map {
             if(it.id == post.id) post else it
         }

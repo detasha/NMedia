@@ -17,6 +17,7 @@ class PostRepositoryInMemoryImpl : PostRepository {
 
     init {
         val initialPosts = List(GENERATED_POST_AMOUNT) { index ->
+
             Post(
                 id = index + 1L,
                 author = "Нетология. Университет интернет-профессий будущего",
@@ -50,6 +51,7 @@ class PostRepositoryInMemoryImpl : PostRepository {
                 else post
             }
 
+
         }
 
     override fun delete(postId: Long) {
@@ -80,4 +82,5 @@ class PostRepositoryInMemoryImpl : PostRepository {
       const val GENERATED_POST_AMOUNT = 1000
     }
 }
+
 

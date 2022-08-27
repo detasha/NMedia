@@ -3,7 +3,9 @@ package ru.netology.nmedia.viewmodel
 import SingleLiveEvent
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+
 import ru.netology.nmedia.adapter.PostInteractionListener
+
 import ru.netology.nmedia.dto.Post
 import ru.netology.nmedia.repository.PostRepository
 import ru.netology.nmedia.repository.impl.PostRepositoryInMemoryImpl
@@ -13,6 +15,7 @@ class PostViewModel : ViewModel(), PostInteractionListener {
     private val repository: PostRepository = PostRepositoryInMemoryImpl()
 
     val data get() = repository.data
+
     val currentPost = MutableLiveData<Post?>(null)
     val sharePostContent = SingleLiveEvent<String>()
     val navigateToPostContentScreenEvent = SingleLiveEvent<String>()
@@ -65,5 +68,6 @@ class PostViewModel : ViewModel(), PostInteractionListener {
     }
 
     //endregion PostInteractionListener
+
 
 }

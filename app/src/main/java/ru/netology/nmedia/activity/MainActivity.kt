@@ -1,14 +1,18 @@
 package ru.netology.nmedia.activity
 
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.provider.Settings.Global.putString
 import android.view.View
 import androidx.activity.result.launch
 import androidx.activity.result.registerForActivityResult
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.edit
 import androidx.viewbinding.ViewBinding
+import com.google.android.material.snackbar.Snackbar
 import ru.netology.nmedia.R
 import ru.netology.nmedia.adapter.PostsAdapter
 import ru.netology.nmedia.databinding.ActivityMainBinding
@@ -32,6 +36,7 @@ class MainActivity : AppCompatActivity() {
         viewModel.data.observe(this) { posts ->
             adapter.submitList(posts)
         }
+
 
 
         binding.fab.setOnClickListener {

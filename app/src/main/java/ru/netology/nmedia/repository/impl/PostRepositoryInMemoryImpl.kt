@@ -72,7 +72,7 @@ class PostRepositoryInMemoryImpl : PostRepository {
       )+ posts
     }
 
-   override fun update(post: Post){
+   private fun update(post: Post){
         data.value = posts.map {
             if(it.id == post.id) post else it
         }

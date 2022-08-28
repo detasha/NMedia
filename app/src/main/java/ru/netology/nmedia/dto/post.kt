@@ -1,6 +1,9 @@
 package ru.netology.nmedia.dto
 import java.math.RoundingMode
 import java.text.DecimalFormat
+import kotlinx.serialization.Serializable
+
+@Serializable
 
 data class Post(
     val id: Long,

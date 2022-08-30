@@ -4,8 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 
 import android.widget.PopupMenu
-
-import androidx.annotation.DrawableRes
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -56,6 +55,9 @@ internal class PostsAdapter(
             binding.menu.setOnClickListener {
                 popupMenu.show()
             }
+            binding.videoBanner.setOnClickListener {
+                listener.onPlayVideoClicked(post)
+            }
 
         }
 
@@ -87,9 +89,9 @@ internal class PostsAdapter(
                 published.text = post.published
                 content.text = post.content
                 like.text = countFormat(post.likesCount)
-                share.text = countFormat(post.sharesCount)
                 view.text = countFormat(post.viewsCount)
                 like.isChecked = post.likedByMe
+                videoGroup.isVisible = post.video != null
 
             }
         }
@@ -105,5 +107,3 @@ internal class PostsAdapter(
                 oldItem == newItem
         }
     }
-
-

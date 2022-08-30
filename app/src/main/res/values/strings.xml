@@ -11,4 +11,8 @@
     <string name="edit">Edit</string>
     <string name="netologia">Netologia</string>
     <string name="edit_message">Edit message</string>
+    <string name="chooser_share_post">Share post</string>
+    <string name="description_post_save">Save</string>
+    <string name="add_post">Add post</string>
+    <string name="edit_title">Edit text</string>
 </resources>

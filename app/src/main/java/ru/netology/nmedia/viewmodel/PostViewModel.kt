@@ -22,7 +22,9 @@ class PostViewModel(application: Application) :
     val currentPost = MutableLiveData<Post?>(null)
     val sharePostContent = SingleLiveEvent<String>()
     val navigateToPostContentScreenEvent = SingleLiveEvent<String>()
+    val navigateToCurrentPostScreenEvent = SingleLiveEvent<Post>()
     val playVideo = SingleLiveEvent<String>()
+
 
 
     fun onSaveButtonClicked(content: String) {
@@ -68,6 +70,10 @@ class PostViewModel(application: Application) :
             "Url must not be null"
         }
         playVideo.value = url
+    }
+
+    override fun onPostClicked(post: Post) {
+        navigateToCurrentPostScreenEvent.value = post
     }
 
     //endregion PostInteractionListener

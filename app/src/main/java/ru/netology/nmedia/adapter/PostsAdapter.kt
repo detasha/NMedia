@@ -59,6 +59,8 @@ internal class PostsAdapter(
                 listener.onPlayVideoClicked(post)
             }
 
+            binding.root.setOnClickListener { listener.onPostClicked(post) }
+
         }
 
         private val popupMenu by lazy {

@@ -21,7 +21,8 @@ import ru.netology.nmedia.util.hiddenKeyboard
 import ru.netology.nmedia.viewmodel.PostViewModel
 
 class MainActivity : AppCompatActivity() {
-    private val viewModel by viewModels<PostViewModel>()
+
+    private val viewModel: PostViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,36 +30,16 @@ class MainActivity : AppCompatActivity() {
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
         val adapter = PostsAdapter(viewModel)
-
         binding.postRecyclerView.adapter = adapter
+
         viewModel.data.observe(this) { posts ->
             adapter.submitList(posts)
         }
 
-
-
         binding.fab.setOnClickListener {
             viewModel.onAddClicked()
         }
-
-
-//        viewModel.currentPost.observe(this) { currentPost ->
-//            with(binding.content) {
-//                val content = currentPost?.content
-//                setText(content)
-//                if (content != null) {
-//                    binding.editMessageTextContent.text = content
-//                    binding.groupForEdit.visibility = View.VISIBLE
-//                } else {
-//                    binding.groupForEdit.visibility = View.GONE
-//                    clearFocus()
-//                    hiddenKeyboard()
-//                }
-//            }
-//
-//        }
 
         viewModel.sharePostContent.observe(this) { postContent ->
             val intent = Intent().apply {
@@ -66,11 +47,18 @@ class MainActivity : AppCompatActivity() {
                 putExtra(Intent.EXTRA_TEXT, postContent)
                 type = "text/plain"
             }
-            val shareIntent =
-                Intent.createChooser(
-                    intent, getString(R.string.chooser_share_post)
-                )
+
+            val shareIntent = Intent.createChooser(
+                intent, getString(R.string.chooser_share_post)
+            )
             startActivity(shareIntent)
+        }
+
+        viewModel.playVideo.observe(this) { videoUrl ->
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(videoUrl))
+            if (intent.resolveActivity(packageManager) != null) {
+                startActivity(intent)
+            }
         }
 
 
@@ -85,17 +73,9 @@ class MainActivity : AppCompatActivity() {
             val contentForEdit = viewModel.currentPost.value?.content
             postContentActivityLauncher.launch(contentForEdit)
         }
-
-        viewModel.playVideo.observe(this) { videoUrl ->
-            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(videoUrl))
-            if (intent.resolveActivity(packageManager) != null) {
-                startActivity(intent)
-            }
-        }
-
     }
-}
 
+}
 
 
 

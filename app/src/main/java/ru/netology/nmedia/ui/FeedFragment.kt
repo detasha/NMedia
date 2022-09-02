@@ -4,32 +4,25 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import androidx.activity.viewModels
-import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.commit
-import androidx.fragment.app.setFragmentResultListener
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.*
 import androidx.navigation.fragment.findNavController
 import ru.netology.nmedia.R
 import ru.netology.nmedia.adapter.PostsAdapter
-
 import ru.netology.nmedia.databinding.FeedFragmentBinding
+
 
 import ru.netology.nmedia.viewmodel.PostViewModel
 
 class FeedFragment : Fragment() {
 
-    private val viewModel by viewModels<PostViewModel>()
+    private val viewModel: PostViewModel by activityViewModels()
 
     private val Fragment.packageManager
         get() = activity?.packageManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
 
         viewModel.sharePostContent.observe(this) { postContent ->
             val intent = Intent().apply {
@@ -52,16 +45,6 @@ class FeedFragment : Fragment() {
         }
 
 
-        viewModel
-            .navigateToPostContentScreenEvent
-            .observe(viewLifecycleOwner) { initialContent ->
-                val direction =
-                    FeedFragmentDirections.toPostContentFragment(
-                        initialContent, PostContentFragment.REQUEST_CURRENT_POST_KEY
-                    )
-                findNavController().navigate(direction)
-            }
-
         setFragmentResultListener(
             requestKey = PostContentFragment.REQUEST_KEY
         ) { requestKey, bundle ->
@@ -70,29 +53,49 @@ class FeedFragment : Fragment() {
                 PostContentFragment.RESULT_KEY
             ) ?: return@setFragmentResultListener
             viewModel.onSaveButtonClicked(newPostContent)
+
         }
 
+        viewModel.navigateToPostContentScreenEvent.observe(this) { initialContent ->
+            val direction = FeedFragmentDirections.toPostContentFragment(
+                initialContent,
+                PostContentFragment.REQUEST_KEY
+            )
+            findNavController().navigate(direction)
+        }
+
+        viewModel.navigateToCurrentPostScreenEvent.observe(this) { currentPost ->
+            val direction =
+                FeedFragmentDirections.toCurrentPostFragment(currentPost.id)
+            findNavController().navigate(direction)
+        }
     }
 
-        override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
-        ) = FeedFragmentBinding.inflate(layoutInflater, container, false).also { binding ->
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ) = FeedFragmentBinding.inflate(layoutInflater, container, false).also { binding ->
 
-            val adapter = PostsAdapter(viewModel)
-            binding.postRecyclerView.adapter = adapter
+        val adapter = PostsAdapter(viewModel)
+        binding.postRecyclerView.adapter = adapter
 
-            viewModel.data.observe(viewLifecycleOwner) { posts ->
-                adapter.submitList(posts)
-            }
+        viewModel.data.observe(viewLifecycleOwner) { posts ->
+            adapter.submitList(posts)
+        }
 
-            binding.fab.setOnClickListener {
-                viewModel.onAddClicked()
-            }
-        }.root
+        binding.fab.setOnClickListener {
+            viewModel.onAddClicked()
+        }
+    }.root
 
-    }
+}
+
+
+
+
+
+
 
 
 

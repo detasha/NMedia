@@ -19,155 +19,141 @@
             android:id="@+id/avatar"
             android:layout_width="@dimen/posts_avatar_size"
             android:layout_height="@dimen/posts_avatar_size"
+            android:layout_marginBottom="@dimen/common_spacing"
             android:contentDescription="@string/description_post_author_avatar"
             android:src="@drawable/netology"
+            app:layout_constraintBottom_toBottomOf="@id/header"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@drawable/netology" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/authorName"
+        <TextView
+            android:id="@+id/author"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/common_spacing"
             android:layout_marginEnd="@dimen/common_spacing"
             android:ellipsize="end"
             android:singleLine="true"
-            app:layout_constraintBottom_toTopOf="@id/date"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/options"
+            app:layout_constraintBottom_toTopOf="@+id/published"
+            app:layout_constraintEnd_toStartOf="@id/menu"
             app:layout_constraintStart_toEndOf="@id/avatar"
-            app:layout_constraintTop_toTopOf="@id/avatar"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_chainStyle="packed"
-            tools:text="Нетология. Университет интернет-профессий будущего" />
+            tools:text="@sample/posts.json/data/author" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/date"
+        <TextView
+            android:id="@+id/published"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:ellipsize="end"
-            android:singleLine="true"
-            app:layout_constraintBottom_toBottomOf="@id/avatar"
-            app:layout_constraintEnd_toEndOf="@id/authorName"
-            app:layout_constraintStart_toStartOf="@id/authorName"
-            app:layout_constraintTop_toBottomOf="@id/authorName"
-            tools:text="21 мая в 18:36" />
+            android:layout_marginStart="@dimen/common_spacing"
+            android:layout_marginEnd="@dimen/common_spacing"
+            android:layout_marginBottom="@dimen/common_spacing"
+            app:layout_constraintBottom_toBottomOf="@id/header"
+            app:layout_constraintEnd_toStartOf="@id/menu"
+            app:layout_constraintStart_toEndOf="@id/avatar"
+            app:layout_constraintTop_toBottomOf="@id/author"
+            tools:text="@sample/posts.json/data/published" />
+
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/options"
-            style="@style/Widget.AppTheme.Menu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/menu"
             android:contentDescription="@string/description_post_menu"
-            app:icon="@drawable/ic_baseline_more_vert_24"
+            style="@style/Widget.AppTheme.Menu"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
+            app:layout_constraintTop_toTopOf="parent"
+            />
 
         <androidx.constraintlayout.widget.Barrier
-            android:id="@+id/header_barrier"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:barrierDirection="bottom"
-            app:constraint_referenced_ids="avatar, date, options"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="64dp" />
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/content"
-            android:layout_width="match_parent"
+            android:id="@+id/header"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/common_spacing"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="avatar,published,menu" />
+
+        <TextView
+            android:id="@+id/content"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:autoLink="web"
-            android:linksClickable="true"
-            android:singleLine="false"
-            app:layout_constraintBottom_toTopOf="@id/video_banner"
+            android:lineSpacingMultiplier="1.5"
+            android:paddingTop="@dimen/common_spacing"
+            android:paddingBottom="@dimen/common_spacing"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/header_barrier"
-            tools:text="Привет, это новая Нетология! Когда-то Нетология начиналась с интенсивов по онлайн-маркетингу. Затем появились курсы по дизайну, разработке, аналитике и управлению. Мы растём сами и помогаем расти студентам: от новичков до уверенных профессионалов. Но самое важное остаётся с нами: мы верим, что в каждом уже есть сила, которая заставляет хотеть больше, целиться выше, бежать быстрее. Наша миссия — помочь встать на путь роста и начать цепочку перемен → http://netolo.gy/fyb" />
+            app:layout_constraintTop_toBottomOf="@id/header"
+            tools:text="@sample/posts.json/data/content" />
 
         <androidx.constraintlayout.widget.Barrier
             android:id="@+id/footer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:barrierDirection="bottom"
-            app:constraint_referenced_ids="video_banner" />
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            app:constraint_referenced_ids="content" />
 
         <View
             android:id="@+id/video_banner"
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:background="@drawable/ic_banner_foreground"
-            app:layout_constraintTop_toBottomOf="@id/content" />
+            app:layout_constraintTop_toBottomOf="@id/content"/>
 
         <View
             android:id="@+id/play_video"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:background="@android:drawable/ic_media_play"
+            app:layout_constraintTop_toTopOf="@id/video_banner"
             app:layout_constraintBottom_toBottomOf="@id/video_banner"
-            app:layout_constraintEnd_toEndOf="@id/video_banner"
             app:layout_constraintStart_toStartOf="@id/video_banner"
-            app:layout_constraintTop_toTopOf="@id/video_banner" />
+            app:layout_constraintEnd_toEndOf="@id/video_banner"/>
 
         <androidx.constraintlayout.widget.Group
             android:id="@+id/video_group"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:visibility="gone"
-            app:constraint_referenced_ids="video_banner, play_video"
-            tools:visibility="visible" />
+            tools:visibility="visible"
+            app:constraint_referenced_ids="video_banner, play_video"/>
+
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/likeIcon"
-            style="@style/Widget.AppTheme.LikeCheckbox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/like"
+            style="@style/Widget.AppTheme.LikeCheckbox"
             android:checkable="true"
-            android:contentDescription="@string/description_post_like"
-            app:icon="@drawable/ic_like_24dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/footer"
-            tools:text="100500" />
+            android:contentDescription="@string/description_post_like"
+            tools:text ="100500"
+            />
+
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/shareIcon"
-            style="@style/Widget.AppTheme.Share"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/share"
             android:checkable="true"
+            style="@style/Widget.AppTheme.Share"
             android:contentDescription="@string/description_post_share"
-            app:icon="@drawable/ic_share_24dp"
-            app:layout_constraintStart_toEndOf="@id/likeIcon"
             app:layout_constraintTop_toBottomOf="@id/footer"
-            tools:text="10000" />
+            app:layout_constraintStart_toEndOf="@+id/like"
+            tools:text="100"/>
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/viewsCount"
+        <com.google.android.material.button.MaterialButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/common_spacing"
-            android:layout_marginEnd="@dimen/common_spacing"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:id="@+id/view"
+            style="@style/Widget.AppTheme.View"
+            android:checkable="true"
+            android:contentDescription="@string/description_post_view"
             app:layout_constraintTop_toBottomOf="@id/footer"
-            tools:text="1000" />
-
-        <androidx.appcompat.widget.AppCompatImageButton
-            android:id="@+id/viewIcon"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-
-            android:background="@android:color/transparent"
-            android:minHeight="48dp"
-            android:src="@drawable/ic_baseline_visibility_24"
-            app:layout_constraintEnd_toStartOf="@id/viewsCount"
-            app:layout_constraintTop_toBottomOf="@id/footer" />
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text ="100500"
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

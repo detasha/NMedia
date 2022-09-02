@@ -1,7 +1,5 @@
 package ru.netology.nmedia.ui
 
-import android.annotation.SuppressLint
-import android.content.Context
 import androidx.navigation.fragment.navArgs
 import android.content.Intent
 import android.net.Uri

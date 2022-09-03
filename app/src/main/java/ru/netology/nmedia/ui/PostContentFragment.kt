@@ -18,7 +18,8 @@ class PostContentFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ) = PostContentFragmentBinding.inflate(layoutInflater, container, false).also { binding ->
+    ) = PostContentFragmentBinding.inflate(layoutInflater, container, false
+    ).also { binding ->
         binding.edit.focusAndShowKeyboard()
         binding.edit.setText(args.initialContent)
         binding.ok.setOnClickListener {
@@ -32,8 +33,19 @@ class PostContentFragment : Fragment() {
         if (!text.isNullOrBlank()) {
             val resultBundle = Bundle(1)
             resultBundle.putString(RESULT_KEY, text.toString())
-            setFragmentResult(REQUEST_KEY, resultBundle)
+            if (args.fromFragment == REQUEST_KEY) {
+                setFragmentResult(
+                    REQUEST_KEY,
+                    resultBundle
+                )
+            } else if (args.fromFragment == REQUEST_CURRENT_POST_KEY) {
+                setFragmentResult(
+                    REQUEST_CURRENT_POST_KEY,
+                    resultBundle
+                )
+            }
         }
+
         findNavController().popBackStack()
     }
 

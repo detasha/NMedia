@@ -17,7 +17,7 @@ class PostViewModel(application: Application) :
     private val repository: PostRepository =
         FilePostRepository(application)
 
-    val data get() = repository.data
+    val data by repository::data
 
     val currentPost = MutableLiveData<Post?>(null)
     val sharePostContent = SingleLiveEvent<String>()
@@ -55,6 +55,7 @@ class PostViewModel(application: Application) :
 
     override fun onShareClicked(post: Post) {
         sharePostContent.value = post.content
+        repository.share(post.id)
     }
 
     override fun onRemoveClicked(post: Post) = repository.delete(post.id)

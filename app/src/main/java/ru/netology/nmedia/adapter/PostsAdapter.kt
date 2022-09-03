@@ -90,7 +90,7 @@ internal class PostsAdapter(
                 published.text = post.published
                 content.text = post.content
                 like.text = countFormat(post.likesCount)
-                view.text = countFormat(post.viewsCount)
+                share.text = countFormat(post.sharesCount)
                 like.isChecked = post.likedByMe
                 videoGroup.isVisible = post.video != null
 

@@ -4,13 +4,33 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/AndroidStudioProjects/NMedia/app/src/main/res/drawable-v24/ic_banner_foreground.xml" value="0.1" />
-        <entry key="..\:/AndroidStudioProjects/NMedia/app/src/main/res/layout/activity_main.xml" value="0.18229166666666666" />
+        <entry key="..\:/AndroidStudioProjects/NMedia/app/src/main/res/drawable/ic_add_24.xml" value="0.1275" />
+        <entry key="..\:/AndroidStudioProjects/NMedia/app/src/main/res/drawable/ic_baseline_check_circle_outline_24.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/NMedia/app/src/main/res/drawable/ic_baseline_close_24.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/NMedia/app/src/main/res/drawable/ic_baseline_disabled_by_default_24.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/NMedia/app/src/main/res/drawable/ic_baseline_edit_24.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/NMedia/app/src/main/res/drawable/ic_baseline_favorite_24.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/NMedia/app/src/main/res/drawable/ic_baseline_more_vert_24.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/NMedia/app/src/main/res/drawable/ic_baseline_save_alt_24.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/NMedia/app/src/main/res/drawable/ic_baseline_visibility_24.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/NMedia/app/src/main/res/drawable/ic_like_24dp.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/NMedia/app/src/main/res/drawable/ic_ok_24dp.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/NMedia/app/src/main/res/drawable/ic_outline_favorite_border_24.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/NMedia/app/src/main/res/drawable/ic_share_24dp.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/NMedia/app/src/main/res/drawable/netology.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/NMedia/app/src/main/res/layout-land/current_post_fragment.xml" value="0.2" />
+        <entry key="..\:/AndroidStudioProjects/NMedia/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/NMedia/app/src/main/res/layout/app_activity.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/NMedia/app/src/main/res/layout/current_post_fragment.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/NMedia/app/src/main/res/layout/feed_fragment.xml" value="0.1" />
         <entry key="..\:/AndroidStudioProjects/NMedia/app/src/main/res/layout/intent_handler_activity.xml" value="0.18802083333333333" />
-        <entry key="..\:/AndroidStudioProjects/NMedia/app/src/main/res/layout/post_content_activity.xml" value="0.18229166666666666" />
+        <entry key="..\:/AndroidStudioProjects/NMedia/app/src/main/res/layout/post_content_activity.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/NMedia/app/src/main/res/layout/post_content_fragment.xml" value="0.1" />
         <entry key="..\:/AndroidStudioProjects/NMedia/app/src/main/res/layout/post_edit_content.xml" value="0.18802083333333333" />
         <entry key="..\:/AndroidStudioProjects/NMedia/app/src/main/res/layout/post_list_edit.xml" value="0.18" />
         <entry key="..\:/AndroidStudioProjects/NMedia/app/src/main/res/layout/post_list_item.xml" value="0.18229166666666666" />
         <entry key="..\:/AndroidStudioProjects/NMedia/app/src/main/res/menu/option_posts.xml" value="0.18802083333333333" />
+        <entry key="..\:/AndroidStudioProjects/NMedia/app/src/main/res/mipmap-anydpi-v26/ic_banner.xml" value="0.1" />
         <entry key="..\:/Users/remar/AndroidStudioProjects/NMedia/app/src/main/res/drawable/ic_add_24.xml" value="0.1" />
         <entry key="..\:/Users/remar/AndroidStudioProjects/NMedia/app/src/main/res/drawable/ic_baseline_check_circle_outline_24.xml" value="0.15" />
         <entry key="..\:/Users/remar/AndroidStudioProjects/NMedia/app/src/main/res/drawable/ic_baseline_disabled_by_default_24.xml" value="0.1" />
@@ -26,7 +46,6 @@
         <entry key="..\:/Users/remar/AndroidStudioProjects/NMedia/app/src/main/res/drawable/ic_outline_share_24.xml" value="0.2985" />
         <entry key="..\:/Users/remar/AndroidStudioProjects/NMedia/app/src/main/res/drawable/ic_share_24dp.xml" value="0.193" />
         <entry key="..\:/Users/remar/AndroidStudioProjects/NMedia/app/src/main/res/drawable/netology.xml" value="0.2985" />
-
         <entry key="..\:/Users/remar/AndroidStudioProjects/NMedia/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/remar/AndroidStudioProjects/NMedia/app/src/main/res/layout/intent_handler_activity.xml" value="0.1" />
         <entry key="..\:/Users/remar/AndroidStudioProjects/NMedia/app/src/main/res/layout/post.xml" value="0.1" />

@@ -17,12 +17,14 @@ class PostViewModel(application: Application) :
     private val repository: PostRepository =
         FilePostRepository(application)
 
-    val data get() = repository.data
+    val data by repository::data
 
     val currentPost = MutableLiveData<Post?>(null)
     val sharePostContent = SingleLiveEvent<String>()
     val navigateToPostContentScreenEvent = SingleLiveEvent<String>()
+    val navigateToCurrentPostScreenEvent = SingleLiveEvent<Post>()
     val playVideo = SingleLiveEvent<String>()
+
 
 
     fun onSaveButtonClicked(content: String) {
@@ -53,6 +55,7 @@ class PostViewModel(application: Application) :
 
     override fun onShareClicked(post: Post) {
         sharePostContent.value = post.content
+        repository.share(post.id)
     }
 
     override fun onRemoveClicked(post: Post) = repository.delete(post.id)
@@ -68,6 +71,10 @@ class PostViewModel(application: Application) :
             "Url must not be null"
         }
         playVideo.value = url
+    }
+
+    override fun onPostClicked(post: Post) {
+        navigateToCurrentPostScreenEvent.value = post
     }
 
     //endregion PostInteractionListener

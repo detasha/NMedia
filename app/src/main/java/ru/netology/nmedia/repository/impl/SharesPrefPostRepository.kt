@@ -2,7 +2,6 @@ package ru.netology.nmedia.repository.impl
 
 import android.app.Application
 import android.content.Context
-import android.provider.Settings.Global.putString
 import androidx.core.content.edit
 import androidx.lifecycle.MutableLiveData
 import kotlinx.serialization.decodeFromString
